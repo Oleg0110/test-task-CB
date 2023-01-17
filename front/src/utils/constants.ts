@@ -1,5 +1,6 @@
 export const ROUTES = {
   home: '/',
+  article: '/article',
 };
 
 export const RESPONSIVE_SIZES: string[] = [
@@ -9,5 +10,6 @@ export const RESPONSIVE_SIZES: string[] = [
   '(max-width: 1200px)',
   '(max-width: 1920px)',
 ];
+
 export const RESPONSIVE_VALUE: string[] = ['XS', 'SM', 'MD', 'LG', 'XL'];
 export const RESPONSIVE_WITHOUT_VALUE = 'Another';
