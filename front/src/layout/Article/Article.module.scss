@@ -1,0 +1,40 @@
+@use '../../styles/colors.module' as *;
+@use '../../styles/fonts.module' as *;
+
+.photoBlock {
+  width: 100%;
+  height: 245px;
+}
+
+.backgroundPhoto {
+  background-image: url(../../assets/unsplash_lI7dlA5VBp8.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.articleBlock {
+  background-color: $white-color;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid $main-border-color;
+}
+
+.title {
+  @include title-font;
+  color: $main-black-color;
+  padding-top: 35px;
+}
+
+.article {
+  @include article-font;
+  color: $black-color;
+  text-align: start;
+  padding: 50px 75px;
+}
+
+.buttonBlock {
+  margin-bottom: 45px;
+}
