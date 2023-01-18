@@ -1,5 +1,9 @@
+@use './styles/colors.module' as *;
+
 .App {
   text-align: center;
-  width: 100%;
+  max-width: 1290px;
+  margin: auto;
   height: 100vh;
+  background-color: $white-color;
 }

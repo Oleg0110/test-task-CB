@@ -1,0 +1,29 @@
+@use '../../styles/colors.module' as *;
+@use '../../styles/fonts.module' as *;
+
+.arrowIconRight {
+  background-image: url(../../assets/icon/arrow.svg);
+  background-repeat: no-repeat;
+  background-size: 10px;
+  transform: rotate(180deg);
+  width: 12px;
+  height: 10px;
+}
+
+.arrowIconLeft {
+  background-image: url(../../assets/icon/arrow.svg);
+  background-repeat: no-repeat;
+  background-size: 10px;
+  width: 12px;
+  height: 10px;
+}
+
+.buttonStyle {
+  @include button-font;
+  color: $main-black-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 178px;
+  height: 24px;
+}
