@@ -1,14 +1,19 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from 'utils/constants';
-import CustomButton from 'components/CustomButton/CustomButton';
 import styles from './Article.module.scss';
+import { IArticle } from 'utils/interfaces/article';
+import { CustomButton } from 'components';
+
+interface IArt {
+  article: IArticle;
+}
 
 const Article: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className={styles.mainBlock}>
       <div className={styles.photoBlock}>
         <div className={styles.backgroundPhoto} />
       </div>

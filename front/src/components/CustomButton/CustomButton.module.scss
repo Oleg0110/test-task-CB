@@ -1,10 +1,15 @@
 @use '../../styles/colors.module' as *;
 @use '../../styles/fonts.module' as *;
 
+.buttonStyle {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
 .arrowIconRight {
   background-image: url(../../assets/icon/arrow.svg);
-  background-repeat: no-repeat;
-  background-size: 10px;
+  background-position: center;
   transform: rotate(180deg);
   width: 12px;
   height: 10px;
@@ -12,18 +17,15 @@
 
 .arrowIconLeft {
   background-image: url(../../assets/icon/arrow.svg);
-  background-repeat: no-repeat;
-  background-size: 10px;
+  background-position: center;
   width: 12px;
   height: 10px;
 }
 
-.buttonStyle {
-  @include button-font;
-  color: $main-black-color;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 178px;
-  height: 24px;
+.buttonTextRight {
+  padding-right: 6px;
+}
+
+.buttonTextLeft {
+  padding-left: 6px;
 }
