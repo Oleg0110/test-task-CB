@@ -1,0 +1,173 @@
+// import type {} from '@mui/lab/themeAugmentation';
+import { createTheme } from '@mui/material/styles';
+
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    titleFont: true;
+    articleFont: true;
+    lightFont: true;
+    dateFont: true;
+    boldFont: true;
+    buttonFont: true;
+  }
+}
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsSizeOverrides {
+    XL: true;
+    LG: true;
+    MD: true;
+    SM: true;
+    XS: true;
+  }
+}
+
+export const Colors = {
+  //Main colors
+  mainWhite: '#e5e5e5',
+  mainBlack: '#363636',
+  border: '#eaeaea',
+  white: '#fff',
+  black: '#000',
+  inputTitle: '#575757',
+  keyWord: '#fff619a1',
+  cardShadow: '#0000000D',
+};
+
+export const defaultTheme = createTheme({
+  breakpoints: {
+    values: {
+      // extra-small
+      xs: 420,
+      // small
+      sm: 600,
+      // medium
+      md: 900,
+      // large
+      lg: 1200,
+      // extra-large
+      xl: 1920,
+    },
+  },
+});
+
+const { breakpoints } = defaultTheme;
+
+const theme = createTheme({
+  ...defaultTheme,
+  components: {
+    MuiContainer: {
+      defaultProps: {
+        disableGutters: true,
+        maxWidth: false,
+      },
+    },
+    MuiButton: {
+      variants: [
+        {
+          props: { color: 'primary' },
+          style: {
+            fontWeight: 700,
+            fontSize: '16px',
+            color: Colors.mainBlack,
+            backgroundColor: 'transparent',
+            padding: '0px',
+            textTransform: 'none',
+            height: 25,
+          },
+        },
+      ],
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          width: 400,
+          height: 530,
+          marginBottom: 45,
+          borderRadius: 5,
+          border: `1px solid ${Colors.border}`,
+          boxShadow: `0px 8px 24px ${Colors.cardShadow}`,
+        },
+      },
+    },
+    MuiCardContent: {
+      styleOverrides: {
+        root: { textAlign: 'start', padding: '25px 25px 0px 25px' },
+      },
+    },
+    MuiTypography: {
+      variants: [
+        {
+          props: { variant: 'titleFont' },
+          style: {
+            fontWeight: 400,
+            fontSize: '24px',
+            color: Colors.mainBlack,
+          },
+        },
+        {
+          props: { variant: 'articleFont' },
+          style: {
+            fontWeight: 300,
+            fontSize: '20px',
+            color: Colors.mainBlack,
+            width: '100%',
+          },
+        },
+        {
+          props: { variant: 'boldFont' },
+          style: {
+            fontSize: '36px',
+            fontWeight: 400,
+            color: Colors.black,
+          },
+        },
+        {
+          props: { variant: 'dateFont' },
+          style: {
+            fontWeight: 400,
+            fontSize: '14px',
+            color: Colors.mainBlack,
+            opacity: 0.6,
+          },
+        },
+        {
+          props: { variant: 'lightFont' },
+          style: {
+            fontSize: '20px',
+            fontWeight: 200,
+            color: Colors.black,
+          },
+        },
+        {
+          props: { variant: 'buttonFont' },
+          style: {
+            fontSize: '16px',
+            fontWeight: 700,
+            color: Colors.mainBlack,
+          },
+        },
+      ],
+    },
+  },
+  typography: {
+    h1: {
+      fontSize: '50px',
+      fontWeight: 300,
+      lineHeight: '75px',
+      fontStyle: 'normal',
+    },
+    h2: {
+      fontWeight: 300,
+      fontSize: '20px',
+      color: Colors.black,
+      cursor: 'pointer',
+      width: '100%',
+      ':hover': {
+        color: Colors.black,
+      },
+    },
+  },
+});
+
+export default theme;

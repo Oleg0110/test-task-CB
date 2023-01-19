@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { Button } from '@mui/material';
 import { ROUTES } from 'utils/constants';
 import styles from './CustomButton.module.scss';
 
@@ -20,25 +21,19 @@ const CustomButton: React.FC<ICustomButton> = ({
   return (
     <>
       {arrowPosition === 'arrowRight' ? (
-        <button
-          type="submit"
-          className={styles.buttonStyle}
-          onClick={onClick}
-          onSubmit={onSubmit}
-        >
-          <span>{children}</span>
-          <div className={styles.arrowIconRight} />
-        </button>
+        <Button color="primary" onClick={onClick} onSubmit={onSubmit}>
+          <div className={styles.buttonStyle}>
+            <span className={styles.buttonTextRight}>{children}</span>
+            <div className={styles.arrowIconRight} />
+          </div>
+        </Button>
       ) : (
-        <button
-          type="submit"
-          className={styles.buttonStyle}
-          onClick={onClick}
-          onSubmit={onSubmit}
-        >
-          <div className={styles.arrowIconLeft} />
-          <span>{children}</span>
-        </button>
+        <Button color="primary" onClick={onClick} onSubmit={onSubmit}>
+          <div className={styles.buttonStyle}>
+            <div className={styles.arrowIconLeft} />
+            <span className={styles.buttonTextLeft}>{children}</span>
+          </div>
+        </Button>
       )}
     </>
   );
