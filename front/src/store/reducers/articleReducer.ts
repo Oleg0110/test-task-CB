@@ -13,19 +13,33 @@ export const articleReducer = (
   action: ArticleAction
 ): ArticleState => {
   switch (action.type) {
-    case ArticleActionTypes.FETCH_ARTICLE:
+    case ArticleActionTypes.FETCH_ARTICLES:
       return {
         ...state,
         loading: true,
         error: null,
         articles: [],
       };
-    case ArticleActionTypes.FETCH_ARTICLE_SUCCESS:
+    case ArticleActionTypes.FETCH_ARTICLES_SUCCESS:
       return {
         ...state,
         loading: false,
         error: null,
         articles: action.payload,
+      };
+    case ArticleActionTypes.FETCH_ARTICLE:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+        article: {} as IArticle,
+      };
+    case ArticleActionTypes.FETCH_ARTICLE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        article: action.payload,
       };
     case ArticleActionTypes.FETCH_ARTICLE_ERROR:
       return {

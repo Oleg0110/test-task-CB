@@ -23,3 +23,6 @@ export const convertedDateFunc = (publishedAt: string): string => {
 
   return `${date.month} ${date.day}, ${date.year}`;
 };
+
+export const getArticleId = (path: string): string =>
+  `${path.split('/').pop()}`;

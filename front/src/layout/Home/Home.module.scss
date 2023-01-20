@@ -2,20 +2,10 @@
 @use '../../styles/fonts.module' as *;
 
 .mainContainer {
-  margin-top: 50px;
-}
-
-.searchBlock {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 600px;
-  height: 80px;
-}
-
-.textFilter {
-  @include bold-font;
-  color: $main-black-color;
+  background-color: $white-color;
+  width: 1290px;
+  margin: 0 auto;
+  padding-bottom: 45px;
 }
 
 .resultBlock {
@@ -34,4 +24,10 @@
   flex-wrap: wrap;
   display: flex;
   justify-content: space-between;
+}
+
+.loading {
+  width: 100%;
+  height: 500px;
+  position: relative;
 }
