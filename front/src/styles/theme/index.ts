@@ -31,7 +31,7 @@ export const Colors = {
   black: '#000',
   inputTitle: '#575757',
   keyWord: '#fff619a1',
-  cardShadow: '#0000000D',
+  shadow: '#0000000D',
 };
 
 export const defaultTheme = createTheme({
@@ -78,6 +78,49 @@ const theme = createTheme({
         },
       ],
     },
+    MuiTextField: {
+      variants: [
+        {
+          props: { variant: 'outlined' },
+          style: {
+            '& .MuiOutlinedInput-root:hover': {
+              '& > fieldset': {
+                borderColor: Colors.mainBlack,
+              },
+            },
+            '& .MuiOutlinedInput-root.Mui-focused': {
+              '& > fieldset': {
+                borderColor: Colors.mainBlack,
+              },
+            },
+            '& .MuiOutlinedInput-root': {
+              fontFamily: 'Montserrat',
+              color: Colors.inputTitle,
+              fontWeight: 400,
+              fontSize: 16,
+              '& > fieldset': {
+                borderRadius: '5px',
+                border: `1px solid ${Colors.border}`,
+              },
+            },
+            '& .MuiInputBase-root': {
+              width: 600,
+              height: 50,
+              padding: '13px 20px 13px 60px',
+              color: Colors.inputTitle,
+            },
+          },
+        },
+      ],
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          height: 24,
+          padding: '0px 0px 0px 0px',
+        },
+      },
+    },
     MuiCard: {
       styleOverrides: {
         root: {
@@ -86,13 +129,24 @@ const theme = createTheme({
           marginBottom: 45,
           borderRadius: 5,
           border: `1px solid ${Colors.border}`,
-          boxShadow: `0px 8px 24px ${Colors.cardShadow}`,
+          boxShadow: `0px 8px 24px ${Colors.shadow}`,
         },
       },
     },
     MuiCardContent: {
       styleOverrides: {
         root: { textAlign: 'start', padding: '25px 25px 0px 25px' },
+      },
+    },
+    MuiCircularProgress: {
+      styleOverrides: {
+        root: {
+          color: Colors.black,
+          position: 'absolute',
+          transform: 'translate(-50%, -55%)',
+          top: '50%',
+          left: '50%',
+        },
       },
     },
     MuiTypography: {

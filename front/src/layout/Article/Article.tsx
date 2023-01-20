@@ -1,75 +1,58 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ROUTES } from 'utils/constants';
-import styles from './Article.module.scss';
-import { IArticle } from 'utils/interfaces/article';
 import { CustomButton } from 'components';
-
-interface IArt {
-  article: IArticle;
-}
+import { CircularProgress } from '@mui/material';
+import { useTypeSelector } from 'hooks/useTypeSelector';
+import { getArticleId } from 'utils/functions';
+import { useActions } from 'hooks/useActions';
+import styles from './Article.module.scss';
 
 const Article: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const articleID = getArticleId(location.pathname);
+  const { fetchArticle } = useActions();
+
+  useEffect(() => {
+    fetchArticle(articleID);
+  }, [articleID]);
+
+  const { article, loading } = useTypeSelector((state) => state.article);
+  const { imageUrl, title, summary } = article;
 
   return (
-    <div className={styles.mainBlock}>
-      <div className={styles.photoBlock}>
-        <div className={styles.backgroundPhoto} />
-      </div>
-      <div className={styles.articleBlock}>
-        <h1 className={styles.title}>The 2020 World's Most Valuable Brands</h1>
-        <p className={styles.article}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius quam
-          officia dolorum, doloremque reprehenderit fugiat nihil iure
-          voluptatibus eos alias labore similique cupiditate amet totam,
-          architecto incidunt. Numquam, dolores tenetur. Lorem ipsum dolor sit,
-          amet consectetur adipisicing elit. Eius quam officia dolorum,
-          doloremque reprehenderit fugiat nihil iure voluptatibus eos alias
-          labore similique cupiditate amet totam, architecto incidunt. Numquam,
-          dolores tenetur. Lorem ipsum dolor sit, amet consectetur adipisicing
-          elit. Eius quam officia dolorum, doloremque reprehenderit fugiat nihil
-          iure voluptatibus eos alias labore similique cupiditate amet totam,
-          architecto incidunt. Numquam, dolores tenetur.
-          <br />
-          <br />
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius quam
-          officia dolorum, doloremque reprehenderit fugiat nihil iure
-          voluptatibus eos alias labore similique cupiditate amet totam,
-          architecto incidunt. Numquam, dolores tenetur. Lorem ipsum dolor sit,
-          amet consectetur adipisicing elit. Eius quam officia dolorum,
-          doloremque reprehenderit fugiat nihil iure voluptatibus eos alias
-          labore similique cupiditate amet totam, architecto incidunt. Numquam,
-          dolores tenetur. Lorem ipsum dolor sit, amet consectetur adipisicing
-          elit. Eius quam officia dolorum, doloremque reprehenderit fugiat nihil
-          iure voluptatibus eos alias labore similique cupiditate amet totam,
-          <br />
-          <br />
-          architecto incidunt. Numquam, dolores tenetur. Lorem ipsum dolor sit,
-          amet consectetur adipisicing elit. Eius quam officia dolorum,
-          doloremque reprehenderit fugiat nihil iure voluptatibus eos alias
-          labore similique cupiditate amet totam, architecto incidunt. Numquam,
-          dolores tenetur. Lorem ipsum dolor sit, amet consectetur adipisicing
-          elit. Eius quam officia dolorum, doloremque reprehenderit fugiat nihil
-          iure voluptatibus eos alias labore similique cupiditate amet totam,
-          architecto incidunt. Numquam, dolores tenetur. Lorem ipsum dolor sit,
-          amet consectetur adipisicing elit. Eius quam officia dolorum,
-          doloremque reprehenderit fugiat nihil iure voluptatibus eos alias
-          labore similique cupiditate amet totam, architecto incidunt. Numquam,
-          dolores tenetur. Lorem ipsum dolor sit, amet consectetur adipisicing
-          elit. Eius quam officia dolorum, doloremque reprehenderit fugiat nihil
-          iure voluptatibus eos alias labore similique cupiditate amet totam,
-          architecto incidunt. Numquam, dolores tenetur.
-        </p>
-      </div>
-      <div className={styles.buttonBlock}>
-        <CustomButton
-          arrowPosition="arrowLeft"
-          onClick={() => navigate(ROUTES.home)}
-        >
-          Back to homepage
-        </CustomButton>
-      </div>
+    <div className={styles.mainContainer}>
+      {(loading && (
+        <div className={styles.loading}>
+          <CircularProgress size="75px" />
+        </div>
+      )) || (
+        <>
+          <div className={styles.photoBlock}>
+            <img
+              className={styles.backgroundPhoto}
+              src={imageUrl}
+              alt={title}
+            />
+          </div>
+          <div className={styles.contentBlock}>
+            <div className={styles.articleBlock}>
+              <h1 className={styles.title}>{title}</h1>
+              <p className={styles.article}>{summary}</p>
+            </div>
+            <div className={styles.buttonBlock}>
+              <CustomButton
+                arrowPosition="arrowLeft"
+                onClick={() => navigate(ROUTES.home)}
+              >
+                Back to homepage
+              </CustomButton>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
