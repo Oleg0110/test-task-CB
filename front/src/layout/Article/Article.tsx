@@ -12,18 +12,24 @@ const Article: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const articleID = getArticleId(location.pathname);
   const { fetchArticle } = useActions();
+  const { article, loading, error } = useTypeSelector((state) => state.article);
+
+  const articleID = getArticleId(location.pathname);
 
   useEffect(() => {
     fetchArticle(articleID);
   }, [articleID]);
 
-  const { article, loading } = useTypeSelector((state) => state.article);
   const { imageUrl, title, summary } = article;
 
   return (
     <div className={styles.mainContainer}>
+      {error && (
+        <div className={styles.infoBlock}>
+          <p className={styles.infoMassage}>{error}</p>
+        </div>
+      )}
       {(loading && (
         <div className={styles.loading}>
           <CircularProgress size="75px" />

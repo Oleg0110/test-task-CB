@@ -3,7 +3,6 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { Article, Home } from '../layout';
 import { ROUTES } from './constants';
 
-//!!! Problem with props
 const useRoutes = () => (
   <Routes>
     <Route path={`${ROUTES.article}/*`} element={<Article />}></Route>

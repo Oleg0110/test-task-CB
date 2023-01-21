@@ -32,8 +32,6 @@ const ArticleCard: React.FC<IArticleCard> = ({
 
   const dateString = convertedDateFunc(publishedAt);
 
-  const symbolLimit = summary.slice(0, 100);
-
   const navigateToArticle = () =>
     summary.length > 100 && navigate(`${ROUTES.article}/${title}/${articleID}`);
 
@@ -51,12 +49,16 @@ const ArticleCard: React.FC<IArticleCard> = ({
             <div className={styles.calendarIcon} />
             {dateString}
           </DateTypography>
-          <TitleTypography variant="titleFont" component="div">
-            {title}
-          </TitleTypography>
-          <SummaryTypography component="div" variant="articleFont">
-            {summary.length > 100 ? `${symbolLimit}...` : summary}
-          </SummaryTypography>
+          <TitleTypography
+            variant="titleFont"
+            component="div"
+            dangerouslySetInnerHTML={{ __html: title }}
+          ></TitleTypography>
+          <SummaryTypography
+            component="div"
+            variant="articleFont"
+            dangerouslySetInnerHTML={{ __html: summary }}
+          ></SummaryTypography>
         </CardContent>
       </CardActionArea>
       <CardActions sx={{ padding: 0, marginLeft: '25px' }}>
