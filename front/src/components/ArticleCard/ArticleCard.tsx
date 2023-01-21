@@ -32,8 +32,7 @@ const ArticleCard: React.FC<IArticleCard> = ({
 
   const dateString = convertedDateFunc(publishedAt);
 
-  const navigateToArticle = () =>
-    summary.length > 100 && navigate(`${ROUTES.article}/${title}/${articleID}`);
+  const navigateToArticle = () => navigate(`${ROUTES.article}/${title}/${articleID}`);
 
   return (
     <Card>
