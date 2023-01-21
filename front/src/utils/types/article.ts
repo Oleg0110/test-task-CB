@@ -7,6 +7,7 @@ export enum ArticleActionTypes {
   FETCH_SEARCH_ARTICLE_SUCCESS = 'FETCH_SEARCH_ARTICLE_SUCCESS',
   FETCH_ARTICLE = 'FETCH_ARTICLE',
   FETCH_ARTICLE_SUCCESS = 'FETCH_ARTICLE_SUCCESS',
+  FETCH_SEARCH_TEXT_SUCCESS = 'FETCH_SEARCH_TEXT_SUCCESS',
   FETCH_ARTICLE_ERROR = 'FETCH_ARTICLE_ERROR',
 }
 
@@ -46,6 +47,11 @@ interface FetchArticleSuccessAction {
   payload: IArticle;
 }
 
+interface FetchSearchTextSuccessAction {
+  type: ArticleActionTypes.FETCH_SEARCH_TEXT_SUCCESS;
+  payload: string;
+}
+
 interface FetchArticleErrorAction {
   type: ArticleActionTypes.FETCH_ARTICLE_ERROR;
   payload: string;
@@ -58,4 +64,5 @@ export type ArticleAction =
   | FetchSearchArticleSuccessAction
   | FetchArticleAction
   | FetchArticleSuccessAction
+  | FetchSearchTextSuccessAction
   | FetchArticleErrorAction;

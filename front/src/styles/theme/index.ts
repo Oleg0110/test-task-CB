@@ -1,4 +1,3 @@
-// import type {} from '@mui/lab/themeAugmentation';
 import { createTheme } from '@mui/material/styles';
 
 declare module '@mui/material/Typography' {
@@ -32,6 +31,7 @@ export const Colors = {
   inputTitle: '#575757',
   keyWord: '#fff619a1',
   shadow: '#0000000D',
+  error: '#d32f2f',
 };
 
 export const defaultTheme = createTheme({
@@ -44,7 +44,7 @@ export const defaultTheme = createTheme({
       // medium
       md: 900,
       // large
-      lg: 1200,
+      lg: 1250,
       // extra-large
       xl: 1920,
     },
@@ -103,11 +103,22 @@ const theme = createTheme({
                 border: `1px solid ${Colors.border}`,
               },
             },
+            '& .MuiOutlinedInput-root.Mui-error': {
+              '& fieldset': { borderColor: Colors.error },
+            },
             '& .MuiInputBase-root': {
               width: 600,
               height: 50,
               padding: '13px 20px 13px 60px',
               color: Colors.inputTitle,
+              [breakpoints.down('md')]: {
+                paddingLeft: '50px',
+                width: 400,
+              },
+              [breakpoints.down('sm')]: {
+                paddingLeft: '40px',
+                width: 250,
+              },
             },
           },
         },
@@ -126,7 +137,6 @@ const theme = createTheme({
         root: {
           width: 400,
           height: 530,
-          marginBottom: 45,
           borderRadius: 5,
           border: `1px solid ${Colors.border}`,
           boxShadow: `0px 8px 24px ${Colors.shadow}`,
@@ -157,15 +167,17 @@ const theme = createTheme({
             fontWeight: 400,
             fontSize: '24px',
             color: Colors.mainBlack,
+            lineHeight: '29px',
           },
         },
         {
           props: { variant: 'articleFont' },
           style: {
-            fontWeight: 300,
-            fontSize: '20px',
+            fontWeight: 400,
+            fontSize: '16px',
             color: Colors.mainBlack,
             width: '100%',
+            lineHeight: '24px',
           },
         },
         {

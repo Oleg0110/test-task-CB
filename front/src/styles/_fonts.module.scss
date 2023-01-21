@@ -28,3 +28,8 @@
   font-size: 16px;
   font-weight: 700;
 }
+
+@mixin error-font {
+  font-size: 14px;
+  font-weight: 600;
+}

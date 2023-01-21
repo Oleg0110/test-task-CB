@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import { Button } from '@mui/material';
-import { ROUTES } from 'utils/constants';
 import styles from './CustomButton.module.scss';
 
 type ArrowPositionTypes = 'arrowRight' | 'arrowLeft';

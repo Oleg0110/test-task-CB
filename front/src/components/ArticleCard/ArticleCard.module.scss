@@ -1,7 +1,13 @@
+@use '../../styles/variables.module' as *;
+
 .calendarIcon {
   background-image: url(../../assets/icon/calendar.svg);
   background-position: center;
   width: 16px;
   height: 16px;
   margin-right: 8px;
+}
+
+.keyWord {
+  background-color: $key-word-color;
 }
