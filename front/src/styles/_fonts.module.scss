@@ -1,0 +1,35 @@
+//Main fonts
+@mixin title-font {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+@mixin article-font {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+@mixin light-font {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@mixin date-font {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@mixin bold-font {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@mixin button-font {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+@mixin error-font {
+  font-size: 14px;
+  font-weight: 600;
+}

@@ -1,0 +1,28 @@
+.buttonStyle {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.arrowIconRight {
+  background-image: url(../../assets/icon/arrow.svg);
+  background-position: center;
+  transform: rotate(180deg);
+  width: 12px;
+  height: 10px;
+}
+
+.arrowIconLeft {
+  background-image: url(../../assets/icon/arrow.svg);
+  background-position: center;
+  width: 12px;
+  height: 10px;
+}
+
+.buttonTextRight {
+  padding-right: 6px;
+}
+
+.buttonTextLeft {
+  padding-left: 6px;
+}

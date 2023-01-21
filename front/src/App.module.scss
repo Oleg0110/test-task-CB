@@ -1,0 +1,9 @@
+@use './styles/variables.module' as *;
+
+.App {
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  height: 100%;
+  background-color: $white-color;
+}
